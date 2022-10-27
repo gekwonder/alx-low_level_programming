@@ -2,33 +2,33 @@
 #include <stdlib.h>
 
 /**
- * main - prints the numbers from 1 to 100
- * 3 multiples print Fizz instead of the number
- * 5 multiples print Buzz instead of the number
- * 3 & 5  multiples print FizzBuzz instead of the number
- * Return: Always 0 (Success)
- */
+  * print_diagonal - a function that draws a diagonal line on the terminal
+  * @n: length of diagonal
+  *
+  * Return: void
+  */
 int main(void)
 {
-	int i;
-	char f[] = "Fizz";
-	char b[] = "Buzz";
-	char fb[] = "FizzBuzz";
+	int co, sp;
+	int n = -5;
 
-	for (i = 1; i <= 100; i++)
+	if (n <= 0)
 	{
-		if (i == 100)
-			printf("%s", b);
-		else if ((i % 3 == 0) && (i % 5 == 0))
-			printf("%s ", fb);
-		else if (i % 3 == 0)
-			printf("%s ", f);
-		else if (i % 5 == 0)
-			printf("%s ", b);
-		else
-			printf("%d ", i);
+		printf('\n');
 	}
+	else
+	{
+		for (co = 1; co <= n; co++)
+		{
+			for (sp = 1; sp < co; sp++)
+			{
+				printf(' ');
+			}
+		}
 
-	printf("\n");
+		printf('\\');
+
+		printf('\n');
+	}
 	return (0);
 }
