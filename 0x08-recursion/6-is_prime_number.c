@@ -35,4 +35,4 @@ int divider(int num, int div)
 		return (1);
 
 	return (divider(num, div + 1));
-};
+}
