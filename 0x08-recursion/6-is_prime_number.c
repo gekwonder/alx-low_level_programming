@@ -1,6 +1,6 @@
 #include "main.h"
 
-int divider(int num, int div)
+int divider(int num, int div);
 
 /**
  * is_prime_number - function to check prime.
@@ -35,4 +35,4 @@ int divider(int num, int div)
 		return (1);
 
 	return (divider(num, div + 1));
-}
+};
