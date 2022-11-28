@@ -1,0 +1,1 @@
+ typedef of any struct 
