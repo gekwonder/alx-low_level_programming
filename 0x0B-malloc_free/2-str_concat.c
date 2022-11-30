@@ -1,42 +1,40 @@
 #include "main.h"
-
+#include <stdlib.h>
 /**
- * _strdup - A function that returns a pointer to a newly allocated
- * space in memory, which contains a copy of the string given as a
- * parameter.
- * @str: An input pointer of the string to copy.
- * Return: Apointer to new string or NULL if it str is NULL
+ * str_concat - get ends of input and add together for size
+ * @s1: input one to concat
+ * @s2: input two to concat
+ * Return: concat of s1 and s2
  */
-char *_strdup(char *str)
+char *str_concat(char *s1, char *s2)
 {
-	char *new_str, *start;
-	int i = 0, len = 0;
+	char *conct;
+	int i, ci;
 
-	if (str == NULL)
+	if (s1 == NULL)
+		s1 = "";
+	if (s2 == NULL)
+		s2 = "";
+
+	i = ci = 0;
+	while (s1[i] != '\0')
+		i++;
+	while (s2[ci] != '\0')
+		ci++;
+	conct = malloc(sizeof(char) * (i + ci + 1));
+	if (conct == NULL)
 		return (NULL);
-
-	start = str;
-
-	while (*str)
+	i = ci = 0;
+	while (s1[i] != '\0')
 	{
-		len++;
-		str++;
+		conct[i] = s1[i];
+		i++;
 	}
-
-	str = start;
-	new_str = malloc(sizeof(char) * (len + 1));
-	start = new_str;
-
-	if (new_str != NULL)
+	while (s2[ci] != '\0')
 	{
-		for (; i < len; i++)
-		{
-			new_str[i] = *str;
-			str++;
-		}
-		new_str[i] = '\0';
-		return (start);
+		conct[i] = s2[ci];
+		i++, ci++;
 	}
-	else
-		return (NULL);
+	conct[i] = '\0';
+	return (conct);
 }
