@@ -7,16 +7,23 @@
  */
 unsigned int binary_to_unit(const char *b)
 {
-	int i;
-	unsigned int dec = 0;
+	unsigned int base = 1, result = 0, len = 0;
 
-	if (!b)
+	if (b == NULL)
 		return (0);
-	for (i = 0; b[i]; i++)
+
+	while (b[len])
+		len++;
+
+	while (len)
 	{
-		if (b[i] < '0' || b[i] > '1')
+		if (b[len - 1] != '0' && b[len - 1] != '1')
 			return (0);
-		dec = 2 * dec + (b[i] - '0');
+
+		if (b[len - 1] == '1')
+			result += base;
+		base *= 2;
+		len--;
 	}
-	return (dec);
+	return (result);
 }
